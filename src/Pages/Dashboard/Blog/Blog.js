@@ -12,7 +12,7 @@ const Blog = () => {
 
     const onSubmit = data => {
         console.log(data);
-        axios.post('https://aqueous-inlet-49489.herokuapp.com/blogs', data)
+        axios.post('http://localhost:5000/blogs', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Succesfully Added New Blogs')

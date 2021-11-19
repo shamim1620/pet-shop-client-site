@@ -24,7 +24,7 @@ const MakeAdmin = () => {
 
         const user = { email };
 
-        fetch('https://aqueous-inlet-49489.herokuapp.com/users/admin', {
+        fetch('http://localhost:5000/users/admin', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -34,7 +34,6 @@ const MakeAdmin = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount) {
-                    console.log(data);
                     setSuccess(true);
                     reset();
                 }

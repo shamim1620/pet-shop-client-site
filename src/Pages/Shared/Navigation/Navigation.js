@@ -8,7 +8,7 @@ const Navigation = () => {
     const { user, logOut } = useAuth()
     return (
         <div>
-            <Navbar bg="light" expand="lg">
+            <Navbar bg="primary" expand="lg">
                 <Container fluid>
                     <Navbar.Brand href="#">PET SHOP</Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
@@ -31,10 +31,15 @@ const Navigation = () => {
                             </Form>
                         </Nav>
                         {
-                            user.email ? <Button onClick={logOut} variant="outline-success">Logout</Button> : <Form className="d-flex">
-                                <Nav.Link as={NavLink} to="/login"><Button variant="outline-success">Login</Button></Nav.Link>
-
+                            user.email ? <Form className="d-flex">
+                                <Nav.Link as={NavLink} to="/dashboard">Dashboard</Nav.Link>
+                                <Button onClick={logOut} variant="outline-success">Logout</Button>
                             </Form>
+                                :
+                                <Form className="d-flex">
+                                    <Nav.Link as={NavLink} to="/login"><Button variant="outline-success">Login</Button></Nav.Link>
+
+                                </Form>
                         }
 
                     </Navbar.Collapse>

@@ -36,7 +36,7 @@ const Review = () => {
 
         };
         // console.log(ordered)
-        axios.post("https://aqueous-inlet-49489.herokuapp.com/reviews", review)
+        axios.post("http://localhost:5000/reviews", review)
             // console.log('clicked')
             .then((res) => {
                 const response = res.data;

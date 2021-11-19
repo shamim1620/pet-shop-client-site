@@ -10,8 +10,9 @@ const PetFood = () => {
             .then(data => setProducts(data))
     }, []);
     return (
-        <div>
-            <h2>Food Items </h2>
+        <div className="m-5">
+            <h3> Our Products</h3>
+
             <Row xs={1} md={3} className="g-4">
                 {
                     products.map(product => <Cart

@@ -6,12 +6,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -40,25 +34,25 @@ import AddProducts from '../AddProducts/AddProducts';
 
 
 
+
+
 const drawerWidth = 240;
 
 function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    const { user } = useAuth();
+    const { admin } = useAuth();
     let { path, url } = useRouteMatch();
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
 
+
     const drawer = (
         <div>
             <Toolbar />
             <Divider />
-            <Link to='/addservice'><Button color='inherit'>Add Service</Button></Link>
-            <br />
-            <Link to={`${url}/manageallorders`}><Button color='inherit'>Manage AllOrders</Button></Link>
-            <Link to={`${url}/manageproducts`}><Button color='inherit'>Manage Products</Button></Link>
+
             <Link to={`${url}/myorders`}><Button color='inherit'>My Orders</Button></Link>
             <br />
             <Link to={`${url}/payment`}><Button color='inherit'>Payment</Button></Link>
@@ -67,17 +61,19 @@ function Dashboard(props) {
             <br />
             <Link to={`${url}/review`}><Button color='inherit'>Review</Button></Link>
             <br />
-            <Link to={`${url}/update`}><Button color='inherit'>Update Form</Button></Link>
-            <br />
-            <Link to={`${url}/makeadmin`}><Button color='inherit'>Make Admin</Button></Link>
-            <br />
             <Link to={`${url}/blog`}><Button color='inherit'>Blog</Button></Link>
             <br />
-            {/* {admin && <Box>
-                <Link to={`${url}/makeAdmin`}><Button color='inherit'>Make Admin</Button></Link>
+            {admin && <Box>
+                <Link to={`${url}/addProducts`}><Button color='inherit'>Add Products</Button></Link>
                 <br />
-                <Link to={`${url}/addDoctor`}><Button color='inherit'>Add Doctor</Button></Link>
-            </Box>} */}
+                <Link to={`${url}/manageallorders`}><Button color='inherit'>Manage AllOrders</Button></Link>
+                <br />
+                <Link to={`${url}/update`}><Button color='inherit'>Update Form</Button></Link>
+                <br />
+                <Link to={`${url}/manageproducts`}><Button color='inherit'>Manage Products</Button></Link>
+                <br />
+                <Link to={`${url}/makeadmin`}><Button color='inherit'>Make Admin</Button></Link>
+            </Box>}
 
 
             <Divider />
@@ -117,7 +113,6 @@ function Dashboard(props) {
                 sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
                 aria-label="mailbox folders"
             >
-                {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
                 <Drawer
                     container={container}
                     variant="temporary"
@@ -186,7 +181,7 @@ function Dashboard(props) {
                     <Route path={`${path}/blog`}>
                         <Blog></Blog>
                     </Route>
-                    <Route path={`${path}/addservice`}>
+                    <Route path={`${path}/addProducts`}>
                         <AddProducts></AddProducts>
                     </Route>
                 </Switch>
@@ -197,10 +192,7 @@ function Dashboard(props) {
 }
 
 Dashboard.propTypes = {
-    /**
-     * Injected by the documentation to work in an iframe.
-     * You won't need it on your project.
-     */
+
     window: PropTypes.func,
 };
 
