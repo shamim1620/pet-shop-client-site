@@ -47,7 +47,7 @@ const useFirebase = () => {
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                const destination = location?.state?.from || '/dashboard';
+                const destination = location?.state?.from || '/';
                 history.replace(destination);
                 setAuthError('');
             })
@@ -109,7 +109,7 @@ const useFirebase = () => {
 
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('https://aqueous-inlet-49489.herokuapp.com/users', {
+        fetch('http://localhost:5000/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'

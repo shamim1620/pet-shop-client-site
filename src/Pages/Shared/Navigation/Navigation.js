@@ -2,8 +2,10 @@ import Button from '@restart/ui/esm/Button';
 import React from 'react';
 import { Container, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 const Navigation = () => {
+    const { user, logOut } = useAuth()
     return (
         <div>
             <Navbar bg="light" expand="lg">
@@ -28,10 +30,13 @@ const Navigation = () => {
                                 <Button variant="outline-success">Search</Button>
                             </Form>
                         </Nav>
-                        <Form className="d-flex">
-                            <Nav.Link as={NavLink} to="/login"><Button variant="outline-success">Login</Button></Nav.Link>
+                        {
+                            user.email ? <Button onClick={logOut} variant="outline-success">Logout</Button> : <Form className="d-flex">
+                                <Nav.Link as={NavLink} to="/login"><Button variant="outline-success">Login</Button></Nav.Link>
 
-                        </Form>
+                            </Form>
+                        }
+
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
