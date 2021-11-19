@@ -6,6 +6,7 @@ import {
 import './App.css';
 import AuthProvider from "./context/AuthProvider/AuthProvider";
 import AddProducts from "./Pages/AddProducts/AddProducts";
+import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Home/Login/Login/Login";
 import Register from "./Pages/Home/Login/Register/Register";
@@ -26,7 +27,7 @@ function App() {
             <Route path="/products">
               <Products></Products>
             </Route>
-            <Route path="/addProducts">
+            <Route path="/addservice">
               <AddProducts></AddProducts>
             </Route>
             <Route path="/login">
@@ -34,6 +35,9 @@ function App() {
             </Route>
             <Route path="/register">
               <Register></Register>
+            </Route>
+            <Route path="/dashboard">
+              <Dashboard></Dashboard>
             </Route>
           </Switch>
         </Router>
